@@ -14,7 +14,7 @@ const Login = ({ history }) => {
           .signInWithEmailAndPassword(email.value, password.value);
         history.push("/");
       } catch (error) {
-        alert(error);
+        <Redirect to="/" />;
       }
     },
     [history]
@@ -27,19 +27,19 @@ const Login = ({ history }) => {
   }
 
   return (
-    <div>
+      <div style={{textAlign: 'center', justifyContent: 'center'}}>
       <h1>Log in</h1>
-      <form onSubmit={handleLogin}>
-        <label>
-          Email
-          <input name="email" type="email" placeholder="Email" />
+      <form onSubmit={handleLogin} style={{textAlign: 'center', display: 'flex', flexDirection:'column', margin: 15}}>
+        <label style={{margin: 5, padding: 5}}>
+          Email:
+          <input style={{marginLeft: 5}} name="email" type="email" placeholder="Email" />
         </label>
-        <label>
-          Password
-          <input name="password" type="password" placeholder="Password" />
+        <label style={{margin: 5, padding: 5}}>
+          Password:
+          <input style={{marginLeft: 5}} name="password" type="password" placeholder="Password" />
         </label>
-        <button type="submit">Log in</button>
       </form>
+      <button style={{border: "1px solid #D3D3D3", borderRadius: 3, padding: 5}} type="btn">Sign Up</button>
     </div>
   );
 };
