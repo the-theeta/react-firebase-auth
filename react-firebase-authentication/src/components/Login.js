@@ -4,27 +4,24 @@ import app from "./FireConfig.js";
 import { AuthContext } from "./Auth.js";
 
 const Login = ({ history }) => {
+  const { currentUser } = useContext(AuthContext);
   const handleLogin = useCallback(
     async event => {
       event.preventDefault();
+      
       const { email, password } = event.target.elements;
-      try {
+      if(!currentUser) {
         await app
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
         history.push("/");
-      } catch (error) {
-        <Redirect to="/" />;
+      }
+      else{
+        return <Redirect to="/" />;
       }
     },
     [history]
   );
-
-  const { currentUser } = useContext(AuthContext);
-
-  if (currentUser) {
-    return <Redirect to="/" />;
-  }
 
   return (
       <div style={{textAlign: 'center', justifyContent: 'center'}}>

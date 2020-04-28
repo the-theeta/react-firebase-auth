@@ -1,16 +1,16 @@
 import * as types from './actionTypes'
 
-export const addUser = user => ({
-    type: types.ADD_USER,
+export const authUserSet = user => ({
+    type: types.AUTH_USER_SET,
     user
 });
 
-export const updateUser = user => ({
-    type: types.UPDATE_USER,
+export const addUserSet = user => ({
+    type: types.ADD_USER_SET,
     user
 });
 
-export const deleteUser = apiKey => ({
-    type: types.DELETE_USER,
+export const updateUserSet = apiKey => ({
+    type: types.UPDATE_USERS_SET,
     apiKey
 })
