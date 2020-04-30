@@ -1,13 +1,18 @@
-import React from "react";
-import app from "./FireConfig";
+import React from 'react';
+import { compose } from 'recompose';
 
-const Home = () => {
-  return (
-    <>
-      <h1>Home</h1>
-      <button onClick={() => app.auth().signOut()}>Sign out</button>
-    </>
-  );
-};
+import { withAuthentication, withEmailVerification } from './session';
 
-export default Home;
+const HomePage = () => (
+  <div>
+    <h1>Home Page</h1>
+    <p>The Home Page is accessible by every signed in user.</p>
+  </div>
+);
+
+const condition = authUser => !!authUser;
+
+export default compose(
+  withEmailVerification,
+  withAuthentication(condition),
+)(HomePage);

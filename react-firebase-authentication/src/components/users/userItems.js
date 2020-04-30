@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import { withFirebase } from '../FireConfig';
+import { withFirebase } from '../firebase';
 
 class UserItems extends Component {
   constructor(props) {

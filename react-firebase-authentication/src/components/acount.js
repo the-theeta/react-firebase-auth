@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
 import { withAuthorization, withEmailVerification } from '../Session';
-import { withFirebase } from './FireConfig';
+import { withFirebase } from './firebase';
 import { PasswordForgetForm } from './forgotPassword';
 import PasswordChangeForm from './passwordChange';
 
