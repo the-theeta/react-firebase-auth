@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
 import { withAuthorization, withEmailVerification } from '../Session';
-import { withFirebase } from '../Firebase';
-import { PasswordForgetForm } from '../PasswordForget';
-import PasswordChangeForm from '../PasswordChange';
+import { withFirebase } from './FireConfig';
+import { PasswordForgetForm } from './forgotPassword';
+import PasswordChangeForm from './passwordChange';
 
 const LOGIN_IN_METHODS = [
   {

@@ -1,14 +1,7 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
-import app from "./FireConfig";
-import Login from "./Login";
-import { Route,Redirect } from "react-router-dom";
-
-const redirectToLogin = (props) => {
-  return(
-    <Redirect to={"/login"} />
-  )
-}
+import {withFirebase,app} from "./FireConfig";
+import { Redirect } from "react-router-dom";
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
@@ -21,6 +14,11 @@ const SignUp = ({ history }) => {
       history.push("/");
     } catch (error) {
       redirectToLogin()
+    }
+    if(email === currentEmail){
+      return(
+        <Redirect to={"/login"} />
+      )
     }
   }, [history]);
 
@@ -45,7 +43,7 @@ const SignUp = ({ history }) => {
           <input style={{marginLeft: 5}} name="password" type="password" placeholder="Password" />
         </label>
       </form>
-      <button style={{border: "1px solid #D3D3D3", borderRadius: 3, padding: 5}} type="btn">Sign Up</button>
+      <button style={{border: "1px solid #D3D3D3", borderRadius: 3, padding: 5}} type="btn" onClick={firebase.doSignUp}>Sign Up</button>
       
     </div>
   );
