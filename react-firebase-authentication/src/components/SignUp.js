@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
+import * as ROUTES from '../components/constants/routes';
 import { withFirebase } from './firebase';
 
 const SignUpPage = () => (
@@ -149,7 +149,7 @@ class SignUpForm extends Component {
 
 const SignUpLink = () => (
   <p>
-    Don't have an account? <Link to={"../components/SignUp.js"}>Sign Up</Link>
+    Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
   </p>
 );
 

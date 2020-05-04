@@ -1,7 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
-import react, {Component} from 'react';
+import {Component} from 'react';
 
 const config = {
   apiKey: "AIzaSyDdz2oSiUgXMoWey-EIm2-edPht6Y30Ma8",
@@ -12,8 +12,9 @@ const config = {
   messagingSenderId: "559785689354",
 };
 
-class apps extends Component {
+class Firebase extends Component {
   constructor() {
+    super();
     app.initializeApp(config);
 
     this.serverValue = app.database.ServerValue;
@@ -43,7 +44,7 @@ class apps extends Component {
 
   users = () => this.db.ref('users');
 }
-export default apps;
+export default Firebase;
 
 
 

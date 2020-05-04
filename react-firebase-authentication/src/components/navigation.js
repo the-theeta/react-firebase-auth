@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import SignOutButton from '../components/SignOut';
+import * as ROUTES from '../components/constants/routes';
 
 const Navigation = ({ authUser }) =>
   authUser ? (
@@ -14,10 +15,7 @@ const Navigation = ({ authUser }) =>
 const NavigationAuth = ({ authUser }) => (
   <ul>
     <li>
-      <Link to={"../components/Home.js"}>Home</Link>
-    </li>
-    <li>
-      <Link to={"../components/account.js"}>Account</Link>
+      <Link to={ROUTES.HOME}>Home</Link>
     </li>
     <li>
       <SignOutButton />
@@ -28,7 +26,7 @@ const NavigationAuth = ({ authUser }) => (
 const NavigationNonAuth = () => (
   <ul>
     <li>
-      <Link to={"../components/SignUp.js"}>Sign Up</Link>
+      <Link to={ROUTES.SIGN_IN}>Sign Up</Link>
     </li>
   </ul>
 );
